@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="NEON COMET: esquiva asteroides, recoge energía y sobrevive en una arcade cósmica.">
+  <title>NEON COMET — Cosmic Survival</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Comet inicio"><span class="brand-mark">✦</span> NEON<span>COMET</span></a>
+      <div class="top-note"><span class="live-dot"></span> SEÑAL ESTABLE <span class="separator">/</span> SECTOR 07</div>
+      <button id="soundToggle" class="icon-button" aria-label="Activar o desactivar sonido" title="Sonido">♫ <span id="soundLabel">SONIDO ON</span></button>
+    </header>
+
+    <section class="game-layout" aria-label="Juego Neon Comet">
+      <div class="game-column">
+        <div class="game-heading">
+          <div><p class="eyebrow">ARCADE DE SUPERVIVENCIA</p><h1>Persigue la <em>luz.</em></h1></div>
+          <div class="status-chip"><span></span> SISTEMA ONLINE</div>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap">
+          <canvas id="game" width="960" height="600" aria-label="Área de juego. Usa las flechas o WASD para moverte."></canvas>
+          <div class="scanlines" aria-hidden="true"></div>
+          <div class="hud" id="hud" hidden>
+            <div class="hud-stat"><span>PUNTOS</span><strong id="score">000000</strong></div>
+            <div class="hud-center" id="level">SECTOR 01</div>
+            <div class="hud-stat right"><span>RÉCORD</span><strong id="highScore">000000</strong></div>
+          </div>
+          <div class="overlay" id="startScreen">
+            <div class="orbit-badge"><span class="orbit-ring"></span><span class="comet-icon">☄</span></div>
+            <p class="eyebrow">UNA MISIÓN. CERO SEGUNDAS OPORTUNIDADES.</p>
+            <h2>NEON<br><em>COMET</em></h2>
+            <p class="intro">El vacío está lleno de peligros.<br>Tu hambre de energía, también.</p>
+            <button id="startBtn" class="primary-button">INICIAR MISIÓN <span>↗</span></button>
+            <div class="controls-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> <span>o</span> <kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd><span class="hint-mobile">· toca y arrastra para pilotar</span></div>
+          </div>
+          <div class="overlay" id="gameOverScreen" hidden>
+            <div class="over-icon">✹</div><p class="eyebrow">SEÑAL PERDIDA</p>
+            <h2>MISIÓN<br><em>TERMINADA</em></h2>
+            <p class="final-score">PUNTUACIÓN <strong id="finalScore">0</strong></p>
+            <p id="recordMessage" class="record-message">El cosmos te espera de nuevo.</p>
+            <button id="restartBtn" class="primary-button">VOLVER A INTENTAR <span>↻</span></button>
+          </div>
+          <div id="pauseTag" class="pause-tag" hidden>PAUSA <small>pulsa P para continuar</small></div>
+          <div id="toast" class="toast" aria-live="polite"></div>
+        </div>
+        <div class="game-footer">
+          <span><i class="key-dot"></i> <b>MOVER</b> WASD / FLECHAS</span>
+          <span><i class="key-dot pink"></i> <b>RECOGER</b> NÚCLEOS DE LUZ</span>
+          <span><i class="key-dot yellow"></i> <b>EVITAR</b> ASTEROIDES</span>
+          <button id="pauseBtn" class="pause-button" disabled>Ⅱ PAUSAR</button>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <section class="panel score-panel">
+          <p class="eyebrow">TU TRANSMISIÓN</p>
+          <div class="big-score" id="sideScore">000000</div>
+          <div class="score-caption">PUNTOS DE ENERGÍA</div>
+          <div class="progress-label"><span>PROGRESO DEL SECTOR</span><span id="progressText">0%</span></div>
+          <div class="progress-track"><div id="progressBar"></div></div>
+          <div class="side-stats"><div><span>RÉCORD PERSONAL</span><strong id="sideHigh">000000</strong></div><div><span>SECTOR</span><strong id="sideLevel">01</strong></div></div>
+        </section>
+        <section class="panel objective-panel">
+          <div class="panel-title"><span class="tiny-icon">◎</span><h3>PROTOCOLO</h3></div>
+          <p>Sobrevive el mayor tiempo posible. Recoge los núcleos cian para multiplicar tu puntuación.</p>
+          <div class="objective-row"><span class="orb cyan"></span><span>Núcleo de energía</span><strong>+100</strong></div>
+          <div class="objective-row"><span class="orb pink-orb"></span><span>Combo de precisión</span><strong>×2</strong></div>
+          <div class="objective-row"><span class="orb orange"></span><span>Impacto asteroid</span><strong>FIN</strong></div>
+        </section>
+        <section class="quote-panel"><span class="quote-mark">“</span><p>En el espacio nadie oye tus gritos. Pero todos ven tu puntuación.</p><span class="quote-credit">— PILOTO ANÓNIMO, 2089</span></section>
+        <div class="version-note"><span>NEON COMET v1.0</span><span>VANILLA JS · NO ASSETS</span></div>
+      </aside>
+    </section>
+    <footer class="page-footer"><span>HECHO PARA LOS QUE NO DEJAN DE JUGAR.</span><span>© 2089 COSMIC ARCADE <b>✦</b></span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
